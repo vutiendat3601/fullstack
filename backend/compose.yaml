@@ -1,0 +1,23 @@
+services:
+  db:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_DB: fullstack
+      POSTGRES_USER: fullstack
+      POSTGRES_PASSWORD: fullstack
+      PG_DATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - default
+volumes:
+  db:
+    name: postgres
+    driver: local
+networks:
+  default:
+    name: fullstack
+    driver: bridge
