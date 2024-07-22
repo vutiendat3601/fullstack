@@ -7,12 +7,14 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>3.3.2</version>
-    <relativePath /> <!-- lookup parent from repository -->
+    <relativePath />
   </parent>
+
   <groupId>vn.io.vutiendat3601</groupId>
   <artifactId>fullstack</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>fullstack</name>
+
   <description>Full Stack Project</description>
   <url />
   <licenses>
@@ -29,6 +31,7 @@
   </scm>
   <properties>
     <java.version>17</java.version>
+    <javafaker.version>1.0.2</javafaker.version>
   </properties>
 
   <build>
@@ -60,11 +63,6 @@
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
       <scope>runtime</scope>
     </dependency>
@@ -76,6 +74,36 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jdbc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-database-postgresql</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.github.javafaker</groupId>
+      <artifactId>javafaker</artifactId>
+      <version>${javafaker.version}</version>
+    </dependency>
+
+    <!-- Testing -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>postgresql</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>

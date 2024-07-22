@@ -3,6 +3,7 @@ package vn.io.vutiendat3601.fullstack.customer;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -17,23 +18,25 @@ public class CustomerListDataAccessService implements CustomerDao {
     customers.add(new Customer(4L, "Yamal", "yamal@gmail.com", 17));
   }
 
+  @NonNull
   @Override
   public List<Customer> selectAllCustomers() {
     return customers;
   }
 
+  @NonNull
   @Override
-  public Optional<Customer> selectCustomerById(Long id) {
+  public Optional<Customer> selectCustomerById(@NonNull Long id) {
     return customers.stream().filter(customer -> customer.getId().equals(id)).findFirst();
   }
 
   @Override
-  public void insertCustomer(Customer customer) {
+  public void insertCustomer(@NonNull Customer customer) {
     customers.add(customer);
   }
 
   @Override
-  public void updateCustomer(Customer customer) {
+  public void updateCustomer(@NonNull Customer customer) {
     customers.stream()
         .filter(c -> c.getId().equals(customer.getId()))
         .findFirst()
@@ -46,17 +49,17 @@ public class CustomerListDataAccessService implements CustomerDao {
   }
 
   @Override
-  public void deleteCustomerById(Long id) {
+  public void deleteCustomerById(@NonNull Long id) {
     customers.removeIf(c -> c.getId().equals(id));
   }
 
   @Override
-  public boolean existsCustomerById(Long id) {
+  public boolean existsCustomerById(@NonNull Long id) {
     return customers.stream().anyMatch(customer -> customer.getId().equals(id));
   }
 
   @Override
-  public boolean existsCustomerByEmail(String email) {
+  public boolean existsCustomerByEmail(@NonNull String email) {
     return customers.stream().anyMatch(customer -> customer.getEmail().equals(email));
   }
 }

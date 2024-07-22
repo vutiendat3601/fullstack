@@ -2,19 +2,22 @@ package vn.io.vutiendat3601.fullstack.customer;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.lang.NonNull;
 
 public interface CustomerDao {
+  @NonNull
   List<Customer> selectAllCustomers();
 
-  Optional<Customer> selectCustomerById(Long id);
+  @NonNull
+  Optional<Customer> selectCustomerById(@NonNull Long id);
 
-  void insertCustomer(Customer customer);
+  void insertCustomer(@NonNull Customer customer);
 
-  void updateCustomer(Customer customer);
+  void updateCustomer(@NonNull Customer customer);
 
-  void deleteCustomerById(Long id);
+  void deleteCustomerById(@NonNull Long id);
 
-  boolean existsCustomerById(Long id);
+  boolean existsCustomerById(@NonNull Long id);
 
-  boolean existsCustomerByEmail(String email);
+  boolean existsCustomerByEmail(@NonNull String email);
 }

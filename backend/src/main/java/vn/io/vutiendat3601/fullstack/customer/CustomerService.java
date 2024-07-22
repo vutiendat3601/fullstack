@@ -11,7 +11,7 @@ import vn.io.vutiendat3601.fullstack.exception.ResourceNotFoundException;
 public class CustomerService {
   private final CustomerDao customerDao;
 
-  public CustomerService(@Qualifier("customerJpaDataAccessService") CustomerDao customerDao) {
+  public CustomerService(@Qualifier("customerJdbcDataAccessService") CustomerDao customerDao) {
     this.customerDao = customerDao;
   }
 
