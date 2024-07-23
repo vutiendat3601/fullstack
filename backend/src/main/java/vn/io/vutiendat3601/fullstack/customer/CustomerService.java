@@ -26,17 +26,14 @@ public class CustomerService {
             () -> new ResourceNotFoundException("Customer with id [%s] not found".formatted(id)));
   }
 
-  public void addCustomer(CustomerRegistrationRequest customerRegistrationRequest) {
+  public void addCustomer(CustomerRegistrationRequest customerRegReq) {
     // Check if exists email
-    if (customerDao.existsCustomerByEmail(customerRegistrationRequest.email())) {
+    if (customerDao.existsCustomerByEmail(customerRegReq.email())) {
       throw new ResourceDuplicationException(
-          "Email already taken".formatted(customerRegistrationRequest.email()));
+          "Email already taken".formatted(customerRegReq.email()));
     }
     customerDao.insertCustomer(
-        new Customer(
-            customerRegistrationRequest.name(),
-            customerRegistrationRequest.email(),
-            customerRegistrationRequest.age()));
+        new Customer(customerRegReq.name(), customerRegReq.email(), customerRegReq.age()));
   }
 
   public void updateCustomer(Long id, CustomerUpdateRequest customerUpdateReq) {

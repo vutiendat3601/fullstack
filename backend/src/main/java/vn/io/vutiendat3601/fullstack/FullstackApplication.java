@@ -19,6 +19,7 @@ public class FullstackApplication {
 
   @Bean
   CommandLineRunner runner(CustomerRepository customerRepo) {
+
     final Faker faker = new Faker();
     final Random random = new Random();
     final List<Customer> customers = new LinkedList<>();

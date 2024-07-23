@@ -58,7 +58,7 @@ public class CustomerJdbcDataAccessService implements CustomerDao {
       final String sql =
           """
           UPDATE customer
-          SET name = ?
+          SET age = ?
           WHERE id = ?
           """;
       jdbcTemplate.update(sql, customer.getAge(), customer.getId());
@@ -67,7 +67,7 @@ public class CustomerJdbcDataAccessService implements CustomerDao {
       final String sql =
           """
           UPDATE customer
-          SET name = ?
+          SET email = ?
           WHERE id = ?
           """;
       jdbcTemplate.update(sql, customer.getEmail(), customer.getId());
